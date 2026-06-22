@@ -18,6 +18,8 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npm run build
+        env:
+          VITE_BASE_PATH: /impostor-game/
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

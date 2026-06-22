@@ -2,7 +2,7 @@
 
 ¡Bienvenido a **El Impostor**! Una adaptación digital del clásico juego de roles ocultos y engaño. Ideal para jugar con amigos y familiares en la misma habitación usando un solo dispositivo.
 
-🎮 **[¡Juega ahora directamente desde tu navegador!](https://ignaciomilani.github.io/impostor-game/)**
+🎮 **[¡Juega ahora!](https://impostor-rc.netlify.app)** · [GitHub Pages](https://ignaciomilani.github.io/impostor-game/)
 
 <p align="center">
   <img src="docs/images/setup-screen.png" alt="Pantalla de configuración de El Impostor" width="360" />
@@ -87,8 +87,8 @@ npm run build
 
 ### Distribución
 
-**Versión Web** — GitHub Pages  
-👉 [Jugar ahora](https://ignaciomilani.github.io/impostor-game/)
+**Versión Web**  
+👉 [Jugar en Netlify](https://impostor-rc.netlify.app) · [GitHub Pages](https://ignaciomilani.github.io/impostor-game/)
 
 **Versión Android (APK)** — Capacitor + GitHub Actions  
 👉 [Descargar APK](https://github.com/IgnacioMilani/impostor-game/releases/latest)
