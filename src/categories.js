@@ -1,14 +1,17 @@
 export const CATEGORY_ICONS = {
-  "Animales": "🦁",
-  "Profesiones": "👨‍⚕️",
-  "Comida": "🍕",
-  "Países": "🌎",
-  "Lugares": "🏥",
-  "Jugadores de Fútbol": "⚽",
-  "Películas": "🎬",
-  "Deportes": "🏀",
-  "Marcas": "🏷️"
+  "Al Azar": { icon: "casino", color: "#a855f7" },
+  "Animales": { icon: "pets", color: "#f59e0b" },
+  "Profesiones": { icon: "work", color: "#6366f1" },
+  "Comida": { icon: "restaurant", color: "#ef4444" },
+  "Países": { icon: "public", color: "#3b82f6" },
+  "Lugares": { icon: "location_on", color: "#14b8a6" },
+  "Jugadores de Fútbol": { icon: "sports_soccer", color: "#22c55e" },
+  "Películas": { icon: "movie", color: "#ec4899" },
+  "Deportes": { icon: "sports_basketball", color: "#f97316" },
+  "Marcas": { icon: "sell", color: "#8b5cf6" },
 };
+
+export const DEFAULT_CATEGORY_ICON = { icon: "category", color: "#94a3b8" };
 
 export const CATEGORIES_CLUSTERED = {
   "Animales": [

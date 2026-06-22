@@ -1,67 +1,97 @@
 # 🕵️‍♂️ El Impostor - Juego de Mesa Digital
 
-¡Bienvenido a **El Impostor**! Una adaptación digital y súper vitaminada del clásico juego de mesa de roles ocultos y engaño. Ideal para jugar con amigos y familiares en la misma habitación usando un solo dispositivo.
+¡Bienvenido a **El Impostor**! Una adaptación digital del clásico juego de roles ocultos y engaño. Ideal para jugar con amigos y familiares en la misma habitación usando un solo dispositivo.
 
 🎮 **[¡Juega ahora directamente desde tu navegador!](https://paolo7s.github.io/impostor-game/)**
+
+<p align="center">
+  <img src="docs/images/setup-screen.png" alt="Pantalla de configuración de El Impostor" width="360" />
+</p>
 
 ---
 
 ## 🎲 ¿En qué consiste el juego?
 
-El objetivo del juego es descubrir quién es el impostor... ¡O evitar ser descubierto si tú eres el impostor!
+El objetivo es descubrir quién es el impostor… ¡o evitar ser descubierto si tú lo eres!
 
-1. Se selecciona una categoría de palabras (ej: Animales, Comida, Países).
-2. El dispositivo se va pasando de mano en mano entre todos los jugadores.
-3. La mayoría de los jugadores (los "Inocentes") verán la **misma palabra secreta**.
-4. Una minoría (los "Impostores") verán un mensaje indicando que son el impostor.
-5. Una vez que todos han visto su rol, los jugadores toman turnos para decir **una sola palabra** relacionada con la palabra secreta.
-6. Al final de la ronda, todos debaten y votan por quién creen que es el impostor. Si adivinan, ¡ganan los inocentes! Si el impostor sobrevive o logra adivinar la palabra secreta, ¡gana el impostor!
+1. Se eligen categorías de palabras (ej: Animales, Comida, Países) y se configura la partida.
+2. El dispositivo se pasa de mano en mano entre todos los jugadores.
+3. La mayoría (los **Inocentes**) verán la **misma palabra secreta**.
+4. Una minoría (los **Impostores**) verán que son el impostor.
+5. Una vez que todos vieron su rol, los jugadores dicen **una sola palabra** relacionada con la palabra secreta.
+6. Al final de la ronda, todos debaten y votan. Si aciertan, ganan los inocentes; si el impostor sobrevive, gana él.
 
----
-
-## 🔥 Modos de Juego Únicos
-
-Este juego lleva la experiencia un paso más allá introduciendo variantes para complicar la mente de los jugadores:
-
-*   **🟢 Clásico:** 1 palabra secreta. La categoría es visible para todos.
-*   **🙈 A Ciegas:** ¡La categoría no se muestra a nadie! El impostor estará totalmente perdido, pero los inocentes también tendrán cuidado de no ser muy obvios.
-*   **🎲 Doble Palabra:** Los inocentes reciben 2 palabras (la común y una falsa totalmente aleatoria de la misma categoría). Tendrán que descubrir en pleno debate cuál es la real.
-*   **🤪 Despistado:** Todos reciben la palabra, pero a **un inocente al azar** le tocará una palabra **muy parecida pero distinta** (ej: si a todos les toca *Argentina*, al despistado le tocará *Uruguay*). ¡Caos total en el debate!
+El temporizador de debate se puede ajustar antes de empezar (por defecto, 1 minuto por jugador).
 
 ---
 
-## 🛠️ Detalles Técnicos y Construcción
+## 🔥 Modos de Juego
 
-Este proyecto fue desarrollado bajo los estándares más modernos de desarrollo web y móvil. Su arquitectura prioriza el diseño, la rapidez y el bajo consumo de recursos (ideal para no agotar la batería del móvil en reuniones largas).
+*   **Clásico:** Una palabra secreta de una categoría anunciada.
+*   **A Ciegas:** La categoría es secreta. Nadie sabe de qué tema se habla hasta debatir.
+*   **Doble Palabra:** Los inocentes reciben 2 palabras: una verdadera y una falsa de la misma categoría.
+*   **Despistado:** Un inocente recibe una palabra *similar* a la verdadera (del mismo sub-grupo semántico). ¡Caos en el debate!
 
-### Tecnologías Utilizadas
-*   **Vite:** Herramienta de construcción ultra rápida.
-*   **React:** Librería principal para la interfaz y el manejo de estados reactivos.
-*   **CSS Puro:** Sistema de diseño con variables CSS (`index.css`), usando estilo neomorfismo/Glassmorphism con animaciones suaves y una paleta moderna en "Dark Mode".
-*   **Capacitor:** Envuelve la aplicación web para compilarla nativamente hacia Android.
-*   **GitHub Actions:** Pipeline CI/CD que compila automáticamente el código y genera archivos `.apk` en la nube.
+---
 
-### Almacenamiento Local (Persistencia)
-El juego utiliza un Custom Hook (`useStickyState`) apoyado en el `localStorage` del navegador para recordar automáticamente tus preferencias. Cuando abres el juego por segunda vez, recuerda exactamente qué categorías tenías seleccionadas y cuántos jugadores eran, eliminando la fricción de reconfigurar todo.
+## ✨ Interfaz
 
-### Estructura de Archivos Principal
-*   `src/App.jsx`: Corazón de la lógica, manejo de roles, turnos y pantallas (setup, pasando teléfono, revelando rol).
-*   `src/categories.js`: Base de datos de palabras. Incluye una innovadora estructura de **Sub-grupos Semánticos** (`CATEGORIES_CLUSTERED`) que permite al algoritmo del modo "Despistado" encontrar palabras geográficamente o conceptualmente cercanas.
-*   `src/index.css`: Todo el diseño visual, cuadrículas flexibles (`auto-fit`) y variables de color.
+*   Pantalla de configuración con diseño oscuro y estilo glassmorphism.
+*   Selector de tiempo con ruedas deslizables.
+*   Carrusel horizontal de categorías con iconos Material Symbols.
+*   Animaciones en el título, botón de inicio y transiciones entre pantallas.
+*   Sonidos al comenzar la partida y cuando se acaba el tiempo.
+*   Iconos embebidos en la app (funcionan sin conexión en la APK).
+
+---
+
+## 🛠️ Detalles Técnicos
+
+Proyecto web/mobile con foco en diseño responsive, bajo consumo y uso en un solo dispositivo compartido.
+
+### Tecnologías
+*   **Vite** — build y desarrollo.
+*   **React** — interfaz y estado.
+*   **CSS puro** — variables, glassmorphism, animaciones y layout mobile-first (`index.css`).
+*   **Web Audio API** — efectos de sonido procedurales (`src/utils/gameAudio.js`).
+*   **Capacitor** — compilación nativa para Android.
+*   **GitHub Actions** — CI/CD y generación de `.apk`.
+
+### Persistencia
+El hook `useStickyState` guarda en `localStorage` jugadores, categorías, modo, tiempo y estado de partida para retomar sin reconfigurar.
+
+### Estructura principal
+*   `src/App.jsx` — lógica del juego, turnos y pantallas.
+*   `src/categories.js` — palabras y sub-grupos semánticos (`CATEGORIES_CLUSTERED`) para el modo Despistado.
+*   `src/components/` — UI reutilizable (carrusel, selector de tiempo, botón de inicio, badges, etc.).
+*   `src/utils/` — audio y utilidades de tiempo.
+*   `src/index.css` — estilos globales.
+*   `public/fonts/` — fuente Material Symbols (offline).
 
 ---
 
 ## 🚀 Instalación y Despliegue
 
-La aplicación se distribuye en dos formatos gracias al sistema dual configurado:
+### Desarrollo local
 
-### 1. Versión Web (PWA)
-Aloja los archivos compilados en **GitHub Pages**. Permite jugar desde cualquier dispositivo al instante.
-👉 **[Jugar Ahora](https://paolo7s.github.io/impostor-game/)**
+```bash
+npm install
+npm run dev
+```
 
-### 2. Versión Nativa (Android APK)
-Gracias a GitHub Actions y Capacitor, en cada actualización de código se compila automáticamente una versión oficial para Android.
-👉 **[Descargar APK Oficial](https://github.com/paolo7s/impostor-game/releases/latest)**
+### Producción
+
+```bash
+npm run build
+```
+
+### Distribución
+
+**Versión Web** — GitHub Pages  
+👉 [Jugar ahora](https://paolo7s.github.io/impostor-game/)
+
+**Versión Android (APK)** — Capacitor + GitHub Actions  
+👉 [Descargar APK](https://github.com/paolo7s/impostor-game/releases/latest)
 
 ---
 *Desarrollado con mucha pasión para engañar a tus amigos.*
